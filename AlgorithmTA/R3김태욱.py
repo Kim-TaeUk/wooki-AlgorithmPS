@@ -1,11 +1,12 @@
 # R - 3
 
 n = int(input())
+input = list(map(int, input().split()))
 set = []
 
 # [A , B]를 입력받아서 정렬
-for i in range(n):
-    set.append(list(map(int, input().split())))
+for i in range(0, 2 * n, 2):
+    set.append(input[i:i + 2])
 
 set = sorted(set, key=lambda x: (x[0]))
 # print(set)
