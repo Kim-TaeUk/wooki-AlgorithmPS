@@ -1,7 +1,7 @@
 # 3. 조건문(if 분기문, 다중 if문)
-x = 15
+x = 14
 
-if x == 15:
+if x == 14:
     print("Lucky")
 if x != 7:
     print("Unlucky")
