@@ -50,12 +50,23 @@ print("number : ", a, b, c)
 print(a, b, c, sep='')
 print(a, b, c, sep=',')
 
-print(a, b, c, sep='\n')  # 아래 3줄과 동일
+# 동일한 출력(1,2)
+# 출력 1
+print(a, b, c, sep='\n')
+
+# 출력 2
 print(a)
 print(b)
 print(c)
 
-print(a, b, c, sep=' ')  # 아래 3줄과 동일
+# 동일한 출력(1,2,3)
+# 출력 1
+print(a, b, c)
+
+# 출력 2
+print(a, b, c, sep=' ')
+
+# 출력 3
 print(a, end=' ')
 print(b, end=' ')
 print(c, end=' ')
