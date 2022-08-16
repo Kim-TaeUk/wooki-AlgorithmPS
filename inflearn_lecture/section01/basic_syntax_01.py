@@ -13,42 +13,42 @@ A = 2
 A1 = 3
 _b = 4
 # 2b=4 -> error 발생
-print(a, A, A1, _b)
+print(a, A, A1, _b)  # 1 2 3 4
 
 x, y, z = 3, 2, 1
-print(x, y, z)
+print(x, y, z)  # 3 2 1
 
 # 값 swap
 a, b = 10, 20
-print(a, b)
+print(a, b)  # 10 20
 a, b = b, a
-print(b, a)
+print(b, a)  # 20 10
 
 # 변수 타입
 a = 12345
-print(type(a))
+print(type(a))  # <class 'int'>
 
 a = 12.123
-print(a)  # 8byte까지만 출력됨
-print(type(a))
+print(a)  # 8byte까지만 출력됨 # 12.123
+print(type(a))  # <class 'float'>
 
 a = 'student'
-print(a)
+print(a)  # student
 a = "student"
-print(a)
-print(type(a))
+print(a)  # student
+print(type(a))  # <class 'str'>
 
 # 출력 방식
-print("number")
+print("number")  # number
 
 a, b, c = 1, 2, 3
-print(a, b, c)
+print(a, b, c)  # 1 2 3
 
-print("number : ", a, b, c)
+print("number : ", a, b, c)  # number :  1 2 3
 
 # sep와 end
-print(a, b, c, sep='')
-print(a, b, c, sep=',')
+print(a, b, c, sep='')  # 123
+print(a, b, c, sep=',')  # 1,2,3
 
 # 동일한 출력(1,2)
 # 출력 1
