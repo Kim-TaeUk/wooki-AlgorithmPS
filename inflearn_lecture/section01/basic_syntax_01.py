@@ -61,7 +61,7 @@ print(c)
 
 # 동일한 출력(1,2,3)
 # 출력 1
-print(a, b, c)
+print(a, b, c)  # ,로 print하면 띄어쓰기가 됨
 
 # 출력 2
 print(a, b, c, sep=' ')
