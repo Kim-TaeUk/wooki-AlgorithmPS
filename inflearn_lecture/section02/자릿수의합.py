@@ -17,4 +17,4 @@ for x in list:
         max = sum
         res = x
 
-print(x)
+print(res)
