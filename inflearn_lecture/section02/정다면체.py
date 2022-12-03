@@ -18,6 +18,7 @@ for i in range(len(cnt)):
         res.append(cnt[i][0])  # res에 append
 
 res.sort()  # 그리고 정렬하여 출력
-print(res)
+for i in range(len(res)):
+    print(res[i], end=' ')
 
 # 최빈값 찾기 위해 Counter 이용함
