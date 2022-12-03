@@ -1,7 +1,12 @@
 N = int(input())
 list = list(map(int, input().split()))
 
-avg = round(sum(list) / N)
+# avg = round(sum(list) / N)
+# 파이썬에서 round는 round_half_even 방식이므로 아래처럼 해야한다.
+avg = sum(list) / N
+avg += 0.5
+avg = int(avg)
+print(avg)
 
 min = float('inf')
 for idx, x in enumerate(list):  # enumerate 이용
