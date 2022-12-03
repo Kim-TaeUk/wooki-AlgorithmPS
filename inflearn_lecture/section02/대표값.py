@@ -1,7 +1,12 @@
 N = int(input())
 list = list(map(int, input().split()))
 
-avg = round(sum(list) / len(list))  # 평균 구하고 첫째 자리에서 반올림
+# avg = round(sum(list) / len(list))  # 평균 구하고 첫째 자리에서 반올림
+# 파이썬에서 round는 round_half_even 방식이므로 아래처럼 해야한다.
+avg = sum(list) / len(list)
+avg += 0.5
+avg = int(avg)
+print(avg)
 
 # 편차의 절대값 구함
 deviation = []
