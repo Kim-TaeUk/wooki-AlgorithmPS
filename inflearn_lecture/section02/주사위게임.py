@@ -18,3 +18,5 @@ for i in range(N):
     prize_list.append(prize)
 
 print(max(prize_list))
+
+# prize_list 도입하지 말고 res 변수 하나 두고 money와 비교해서 갱신하는 식으로 해도 될 듯(해설처럼)
