@@ -21,3 +21,6 @@ if sum3 > max:
     max = sum3
 if sum4 > max:
     max = sum4
+
+# myList = [list(map(int, input().split())) for _ in range(N)]
+# 2차원 배열을 한 줄 단위로 입력 받는 방법
