@@ -4,4 +4,3 @@ def solution(x, n):
         answer.append(x * i)
 
     return answer
-
