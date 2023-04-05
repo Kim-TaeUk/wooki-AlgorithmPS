@@ -1,5 +1,4 @@
 input_list = [list(map(int, input().split())) for _ in range(9)]
-flag = 0
 
 for i in range(9):
     temp = []
