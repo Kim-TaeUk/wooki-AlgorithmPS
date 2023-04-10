@@ -8,12 +8,14 @@ def count(len):
 
 K, N = map(int, input().split())
 k_list = []
-for _ in range(K):
-    k_list.append(int(input()))
+for i in range(K):
+    tmp = int(input())
+    k_list.append(tmp)
+    largest = max(largest, tmp)
 
 res = 0
 left = 1
-right = max(k_list)
+right = largest
 
 while left <= right:
     mid = (left + right) // 2
