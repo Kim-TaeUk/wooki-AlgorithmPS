@@ -17,10 +17,11 @@ n_list = list(map(int, input().split()))
 res = 0
 left = 1
 right = sum(n_list)
+maxx = max(n_list)
 
 while left <= right:
     mid = (left + right) // 2
-    if count(mid) <= M:
+    if mid >= maxx and count(mid) <= M:
         res = mid
         right = mid - 1
     else:
