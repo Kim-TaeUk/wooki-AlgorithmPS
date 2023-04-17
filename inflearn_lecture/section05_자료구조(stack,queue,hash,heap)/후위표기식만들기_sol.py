@@ -1,9 +1,9 @@
-input_list = input()
+input_string = input()
 
 res = ""
 stack = []
 
-for x in input_list:
+for x in input_string:
     if x.isdigit():
         res += x
     else:
