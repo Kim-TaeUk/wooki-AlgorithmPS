@@ -8,9 +8,8 @@ acc = 1
 while len(queue) != 1:
     if acc % K == 0:
         queue.popleft()
-        acc += 1
     else:
         queue.append(queue.popleft())
-        acc += 1
+    acc += 1
 
 print(queue.popleft())
