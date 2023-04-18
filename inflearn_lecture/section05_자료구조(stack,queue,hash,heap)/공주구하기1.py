@@ -12,8 +12,6 @@ while len(tmp) != 1:
             if acc % K == 0:
                 tmp.remove(prince[i])
                 prince[i] = 0
-                acc += 1
-            else:
-                acc += 1
+            acc += 1
 
 print(tmp.pop())
