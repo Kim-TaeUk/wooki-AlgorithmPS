@@ -7,11 +7,9 @@ dq = deque(dq)  # dq: queue
 
 while dq:
     for _ in range(K - 1):
-        cur = dq.popleft()
-        dq.append(cur)
+        dq.append(dq.popleft())
     dq.popleft()
     if len(dq) == 1:
-        print(dq[0])
-        dq.popleft()  # break
+        print(dq.popleft())  # break
 
 # for문을 잘 짜니까 굳이 acc같은 변수를 도입할 필요가 없다
