@@ -8,14 +8,17 @@ for i in range(N):
     plan = deque(plan)
     res = []
 
-    while plan:
+    while True:
         current = plan.popleft()
         if current in essential and current not in res:
             res.append(current)
 
-    if res == essential:
-        print("#", i + 1, "YES")
-    else:
-        print("#", i + 1, "NO")
+        if res == essential:
+            print("#", i + 1, "YES")
+            break
+        else:
+            if len(plan) == 0:
+                print("#", i + 1, "NO")
+                break
 
-# plan을 다 비울 때까지 돌아가는 코드
+# plan과 essential이 같은지 루프마다 조건문으로 비교하는 코드
