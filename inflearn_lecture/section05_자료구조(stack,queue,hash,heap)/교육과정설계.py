@@ -17,3 +17,5 @@ for i in range(N):
         print("#", i + 1, "YES")
     else:
         print("#", i + 1, "NO")
+
+# plan을 다 비울 때까지 돌아가는 코드
