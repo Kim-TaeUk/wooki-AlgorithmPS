@@ -18,10 +18,9 @@ for i in range(len(M_list)):
             left = mid + 1
         elif N_list[mid] == M_list[i]:
             print(1, end=" ")
-            N_list.remove(N_list[mid])
             break
 
     if left > right:
         print(0, end=" ")
 
-# 이분 탐색 / dict 사용 X, M_list 정렬 X -> 시간 초과
+# 이분 탐색 / remove 사용 X -> 해결
