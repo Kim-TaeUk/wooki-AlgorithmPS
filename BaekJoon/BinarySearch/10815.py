@@ -8,3 +8,5 @@ for x in M_list:
         print(0, end=" ")
     else:
         print(1, end=" ")
+
+# 모든 원소 탐색 -> 시간 초과
