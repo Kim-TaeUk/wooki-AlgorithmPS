@@ -15,7 +15,7 @@ while left <= right:
     if cnt >= N:
         res = mid
         left = mid + 1
-    else:  # cnt>N
+    else:  # cnt < N
         right = mid - 1
 
 print(res)
