@@ -1,11 +1,11 @@
 N = int(input())
-numbers = []
+count = [0] * 10001
 for _ in range(N):
-    numbers.append(int(input()))
+    count[int(input())] += 1
 
-numbers.sort()
-for number in numbers:
-    print(number)
+for i in range(10001):
+    for _ in range(count[i]):
+        print(i)
 
-# 메모리 초과
-# 1 ≤ N ≤ 10,000,000, 메모리 제한 8MB라서 적절하지 않은 방법임
+# numbers에 들어가는 수가 10,000보다 작다는 것을 활용
+# 시간 초과
