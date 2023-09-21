@@ -1,14 +1,15 @@
 import sys
+from collections import deque
 
 N = int(sys.stdin.readline().rstrip())
-numbers = [x + 1 for x in range(N)]
+numbers = deque([x + 1 for x in range(N)])
 
 while numbers:
-    numbers.pop(0)
+    numbers.popleft()
     if len(numbers) == 1:
         print(numbers[0])
         break
     else:
-        numbers.append(numbers.pop(0))
+        numbers.append(numbers.popleft())
 
-# 문제 그대로 구현 - 시간 초과
+# N=1일 때, 런타임 에러 발생..
