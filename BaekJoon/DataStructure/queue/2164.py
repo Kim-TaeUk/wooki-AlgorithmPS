@@ -5,6 +5,9 @@ N = int(sys.stdin.readline().rstrip())
 numbers = deque([x + 1 for x in range(N)])
 
 while numbers:
+    if N == 1:
+        print(1)
+        break
     numbers.popleft()
     if len(numbers) == 1:
         print(numbers[0])
@@ -12,7 +15,7 @@ while numbers:
     else:
         numbers.append(numbers.popleft())
 
-# N=1일 때, 런타임 에러 -> 예외 처리
+# N=1일 때, 런타임 에러 -> while문 안에서 예외 처리로 해결함 - 찜찜쓰...
 # pop(0) - 시간복잡도 O(N)
 # popleft() - 시간복잡도 O(1)
 
