@@ -1,25 +1,24 @@
 import sys
 
-stack = list(sys.stdin.readline().rstrip())
+left_stack = list(sys.stdin.readline().rstrip())
 M = int(sys.stdin.readline().rstrip())
-cursor = len(stack)
+right_stack = []
 
 for _ in range(M):
     command = sys.stdin.readline().split()
 
-    if command[0] == 'L':
-        if cursor > 0:
-            cursor -= 1
-    elif command[0] == 'D':
-        if cursor < len(stack):
-            cursor += 1
-    elif command[0] == 'B':
-        if cursor > 0:
-            stack.pop(cursor - 1)
-            cursor -= 1
+    if command[0] == 'L' and left_stack:
+        right_stack.append(left_stack.pop())
+    elif command[0] == 'D' and right_stack:
+        left_stack.append(right_stack.pop())
+    elif command[0] == 'B' and left_stack:
+        left_stack.pop()
     elif command[0] == 'P':
-        stack.insert(cursor, command[1])
-        cursor += 1
+        left_stack.append(command[1])
 
-for item in stack:
+res = left_stack + right_stack[::-1]
+
+for item in res:
     print(item, end="")
+
+# stack 2개 사용하여 해결
