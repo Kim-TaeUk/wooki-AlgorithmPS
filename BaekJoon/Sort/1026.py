@@ -12,3 +12,7 @@ for i in range(len(A)):
     res += A[i] * B[i]
 
 print(res)
+
+# A.sort(), B.sort(): O(NlogN)
+# loop에서 요소 하나씩 처리: O(N)
+# 총 시간복잡도: O(NlogN)
