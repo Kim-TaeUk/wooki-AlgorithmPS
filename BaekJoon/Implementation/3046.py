@@ -1,2 +1,4 @@
-r1, s = input().split()
-print(int(s) * 2 - int(r1))
+import sys
+
+R1, S = map(int, sys.stdin.readline().split())
+print(S * 2 - R1)
