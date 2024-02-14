@@ -3,32 +3,31 @@ import sys
 
 def dfs(current):
     # 단위 작업
-    ans_dfs.append(current)
-    visited[current] = 1
+    ans_dfs.append(current)  # 방문한 곳 추가
+    visited[current] = True  # 방문 표시!
 
-    for vertex in adj[current]:
-        if visited[vertex] == 0:
-            dfs(vertex)
+    for vertex in adj[current]:  # 방문해서
+        if not visited[vertex]:  # 방문하지 않은 곳이면
+            dfs(vertex)  # 방문! DFS니까
 
 
 def bfs(start):
-    # 초기 작업 -> queue 만들기
-    queue = []
+    queue = []  # 필요한 변수 생성: queue
 
+    queue.append(start)  # queue에 시작 데이터(들) 삽입
     # 단위 작업
-    queue.append(start)  # 일단 queue에 첫번째 start 넣기
-    ans_bfs.append(start)
-    visited[start] = 1
+    ans_bfs.append(start)  # 방문한 곳 추가
+    visited[start] = True
 
-    while queue:  # queue가 빌 때까지
-        current = queue.pop(0)  # queue에서 하나씩 뽑으면서 쭉쭉
+    while queue:  # queue에 데이터가 있는 동안
+        current = queue.pop(0)  # queue에서 데이터 빼주고
 
-        for vertex in adj[current]:
-            if visited[vertex] == 0:
-                # 단위 작업
+        for vertex in adj[current]:  # 방문해서
+            if not visited[vertex]:  # 방문하지 않은 곳이면
+                # queue에 삽입하자! BFS니까
                 queue.append(vertex)
                 ans_bfs.append(vertex)
-                visited[vertex] = 1
+                visited[vertex] = True
 
 
 N, M, V = map(int, sys.stdin.readline().split())
@@ -37,20 +36,22 @@ N, M, V = map(int, sys.stdin.readline().split())
 adj = [[] for _ in range(N + 1)]
 
 for _ in range(M):
-    s, e = map(int, sys.stdin.readline().split())
-    adj[s].append(e)
-    adj[e].append(s)
+    start, end = map(int, sys.stdin.readline().split())
+    # 양방향이기 때문에 star <-> end 넣어주기
+    adj[start].append(end)
+    adj[end].append(start)
 
-# 문제 조건이니까 오름차순 정렬해주기
+# 문제 조건대로 오름차순 정렬(<- 정점 번호가 작은 것부터 방문해야하니까)
 for i in range(1, N + 1):
     adj[i].sort()
 
-visited = [0] * (N + 1)  # 방문했는지 확인할 visited arr
-ans_dfs = []  # 답 넣을 arr
-dfs(V)
+# 방문한 거 체크하는 배열, answer 배열 생성
+visited = [False] * (N + 1)
+ans_dfs = []
+dfs(V)  # 시작지점 함수에 넣고 시작!
 
-visited = [0] * (N + 1)  # 방문했는지 확인할 visited arr
-ans_bfs = []  # 답 넣을 arr
+visited = [False] * (N + 1)
+ans_bfs = []
 bfs(V)
 
 print(*ans_dfs)
