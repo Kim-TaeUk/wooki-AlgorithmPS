@@ -6,7 +6,7 @@ def func(base, exponent, modulus):
         return base % modulus
     tmp = func(base, exponent // 2, modulus)
     tmp = tmp * tmp % modulus
-    if exponent % 2 == 0:  # 홀수면
+    if exponent % 2 == 0:  # 짝수면
         return tmp
     return tmp * base % modulus
 
