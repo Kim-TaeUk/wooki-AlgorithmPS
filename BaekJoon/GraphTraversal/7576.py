@@ -18,21 +18,16 @@ def bfs():
 
 
 def find_max():
-    has_zero = False
     max_value = float('-inf')
 
     for row in distance:
         for element in row:
             if element == -1:
-                has_zero = True
-                break
+                return -1
             if element > max_value:
                 max_value = element
 
-    if has_zero:
-        print(-1)
-    else:
-        print(max_value)
+    return max_value
 
 
 M, N = map(int, sys.stdin.readline().split())
@@ -50,4 +45,4 @@ for i in range(N):
         if box[i][j] == 0:
             distance[i][j] = -1
 bfs()
-find_max()
+print(find_max())
