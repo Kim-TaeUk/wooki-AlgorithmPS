@@ -24,8 +24,6 @@ for lt in range(len(prime_num)):
         sum += prime_num[rt]
     if sum == N:
         res += 1
-        sum -= prime_num[lt]
-    elif sum > N:
-        sum -= prime_num[lt]
+    sum -= prime_num[lt]
 
 print(res)
