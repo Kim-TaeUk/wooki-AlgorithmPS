@@ -16,7 +16,7 @@ for i in permutations(lst, 2):
 '''
 
 # 중복 순열 (product) - 순서O, 중복O
-for i in product(lst, lst, repeat=1):
+for i in product(lst, repeat=2):
     print(i)
 '''
 (1, 1), (1, 2), (1, 3), (1, 4)
@@ -26,7 +26,7 @@ for i in product(lst, lst, repeat=1):
 '''
 
 # 조합 (combinations) - 순서X, 중복X
-for i in combinations(lst,2):
+for i in combinations(lst, 2):
     print(i)
 '''
 (1, 2), (1, 3), (1, 4)
@@ -35,7 +35,7 @@ for i in combinations(lst,2):
 '''
 
 # 중복 조합 (combinations_with_replacement) - 순서X, 중복O
-for i in combinations_with_replacement(lst,2):
+for i in combinations_with_replacement(lst, 2):
     print(i)
 '''
 (1, 1), (1, 2), (1, 3), (1, 4)
