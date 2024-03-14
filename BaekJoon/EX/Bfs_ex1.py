@@ -14,6 +14,7 @@ import sys
 from collections import deque
 
 
+# Traversal in Connected Graph, BFS
 def bfs():
     queue = deque()
     queue.append(2)  # start(BFS 시작점)
