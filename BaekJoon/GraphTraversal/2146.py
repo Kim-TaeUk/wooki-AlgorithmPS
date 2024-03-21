@@ -33,9 +33,18 @@ def bfs(start_x, start_y):
     for i in range(N):
         for j in range(N):
             if board[i][j] == label:
+                is_surrounded = True
                 distance[i][j] = 0
                 _visited[i][j] = True  # 71번째 줄에서 bfs 중복으로 안하기 위해
-                queue.append([i, j])
+                for k in range(4):  # 경계점만 queue에 넣기
+                    next_i, next_j = i + dx[k], j + dy[k]
+                    if 0 <= next_i < N and 0 <= next_j < N:
+                        if board[next_i][next_j] != label:
+                            is_surrounded = False
+                            queue.append([i, j])
+                            break
+                if is_surrounded:
+                    continue
 
     while queue:
         current_x, current_y = queue.popleft()
