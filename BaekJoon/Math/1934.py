@@ -1,6 +1,7 @@
+import sys
 import math
 
-T = int(input())
+T = int(sys.stdin.readline().rstrip())
 for _ in range(T):
-    A, B = map(int, input().split())
+    A, B = map(int, sys.stdin.readline().split())
     print(math.lcm(A, B))
