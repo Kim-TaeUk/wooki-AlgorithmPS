@@ -1,11 +1,9 @@
 import sys
 
-N = int(sys.stdin.readline())
-N_list = list(map(int, sys.stdin.readline().split()))
-M = int(sys.stdin.readline())
+N = int(sys.stdin.readline().rstrip())
+N_list = sorted(list(map(int, sys.stdin.readline().split())))
+M = int(sys.stdin.readline().rstrip())
 M_list = list(map(int, sys.stdin.readline().split()))
-
-N_list.sort()
 
 for x in M_list:
     left = 0
@@ -22,5 +20,3 @@ for x in M_list:
             break
     if left > right:
         print(0)
-
-# 이분 탐색으로 시간초과 해결
