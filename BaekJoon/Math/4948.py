@@ -8,7 +8,7 @@ for i in range(2, int(MAX ** 0.5) + 1):
         continue
     for j in range(i * i, MAX + 1, i):
         prime_num[j] = 0
-print(prime_num)
+
 while True:
     N = int(sys.stdin.readline().rstrip())
     if N == 0:
