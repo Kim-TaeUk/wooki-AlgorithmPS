@@ -38,12 +38,7 @@ def rotate():  # 시계 방향으로 90도 회전시키기
 
 def get_answer():
     global notebook
-    res = 0
-    for i in range(N):
-        for j in range(M):
-            if notebook[i][j] == 1:
-                res += 1
-    return res
+    return sum(row.count(1) for row in notebook)  # 2차원 배열 2중 for문에서 개선
 
 
 N, M, K = map(int, sys.stdin.readline().split())
