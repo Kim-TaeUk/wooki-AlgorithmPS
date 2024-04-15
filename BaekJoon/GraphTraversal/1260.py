@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 
 def dfs(current):
@@ -12,7 +13,7 @@ def dfs(current):
 
 
 def bfs(start):
-    queue = []  # 필요한 변수 생성: queue
+    queue = deque()  # 필요한 변수 생성: queue
 
     queue.append(start)  # queue에 시작 데이터(들) 삽입
     # 단위 작업
@@ -20,7 +21,7 @@ def bfs(start):
     visited[start] = True
 
     while queue:  # queue에 데이터가 있는 동안
-        current = queue.pop(0)  # queue에서 데이터 빼주고
+        current = queue.popleft()  # queue에서 데이터 빼주고
 
         for vertex in adj[current]:  # 방문해서
             if not visited[vertex]:  # 방문하지 않은 곳이면
@@ -46,11 +47,11 @@ for i in range(1, N + 1):
     adj[i].sort()
 
 # 방문한 거 체크하는 배열, answer 배열 생성
-visited = [False] * (N + 1)
+visited = [False for _ in range(N + 1)]
 ans_dfs = []
 dfs(V)  # 시작지점 함수에 넣고 시작!
 
-visited = [False] * (N + 1)
+visited = [False for _ in range(N + 1)]
 ans_bfs = []
 bfs(V)
 
