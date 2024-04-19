@@ -20,16 +20,18 @@ def bfs():
             next_x, next_y = current_x + dx[i], current_y + dy[i]
             if next_x < 0 or next_x >= N or next_y < 0 or next_y >= M:
                 continue
-            if distance[next_x][next_y][crashed] != 0:  # 방문한 곳 제외
-                continue
 
             # next_x, next_y가 벽 & 벽 파괴 가능
             if board[next_x][next_y] == 1 and crashed == 0:
+                if distance[next_x][next_y][crashed + 1] != 0:  # 방문한 곳 제외
+                    continue
                 distance[next_x][next_y][1] = distance[current_x][current_y][crashed] + 1
                 queue.append([next_x, next_y, 1])
 
             # next_x, next_y가 벽X
             if board[next_x][next_y] == 0:
+                if distance[next_x][next_y][crashed] != 0:  # 방문한 곳 제외
+                    continue
                 distance[next_x][next_y][crashed] = distance[current_x][current_y][crashed] + 1
                 queue.append([next_x, next_y, crashed])
     return -1
