@@ -1,6 +1,9 @@
 import sys
 from collections import deque
 
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+
 
 def bfs(start_x, start_y):
     queue = deque()
@@ -13,8 +16,10 @@ def bfs(start_x, start_y):
 
         for i in range(4):
             next_x, next_y = current_x + dx[i], current_y + dy[i]
+            if next_x < 0 or next_x >= N or next_y < 0 or next_y >= M:
+                continue
 
-            if 0 <= next_x < N and 0 <= next_y < M and board[next_x][next_y] == 0:
+            if board[next_x][next_y] == 0:
                 board[next_x][next_y] = 1
                 queue.append([next_x, next_y])
                 area += 1
@@ -23,14 +28,12 @@ def bfs(start_x, start_y):
 
 M, N, K = map(int, sys.stdin.readline().split())
 board = [[0 for _ in range(M)] for _ in range(N)]
-dx = [-1, 0, 1, 0]
-dy = [0, 1, 0, -1]
-
 for _ in range(K):
     x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
     for x in range(x1, x2):
         for y in range(y1, y2):
             board[x][y] = -1
+
 res = []
 for i in range(N):
     for j in range(M):
