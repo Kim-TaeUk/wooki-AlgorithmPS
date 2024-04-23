@@ -1,27 +1,26 @@
 import sys
 
+# sys.setrecursionlimit(10 ** 6)
+
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
+
+def dfs(current_x, current_y):
+    if dp[current_x][current_y] == -1:  # 아직 계산 안 한 곳(=첫 방문하는 곳)
+        dp[current_x][current_y] = 0
+        for k in range(4):  # 4방향
+            previous_x, previous_y = current_x + dx[k], current_y + dy[k]  # 이전 좌표 계산
+            if previous_x < 0 or previous_x >= N or previous_y < 0 or previous_y >= M:  # 범위 체크
+                continue
+            if board[previous_x][previous_y] > board[current_x][current_y]:  # 내리막길인 경우만
+                dp[current_x][current_y] += dfs(previous_x, previous_y)  # 경로 누적
+    return dp[current_x][current_y]
+
+
 N, M = map(int, sys.stdin.readline().split())
 board = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-dp = [[0 for _ in range(M)] for _ in range(N)]
+dp = [[-1 for _ in range(M)] for _ in range(N)]
 dp[0][0] = 1
 
-for i in range(N):
-    for j in range(M):
-        current_x, current_y = i, j
-        # 가는 길이 아닐 때
-        if dp[current_x][current_y] == 0:
-            continue
-        for k in range(4):
-            next_x, next_y = current_x + dx[k], current_y + dy[k]
-            # board 나가려고 할 때
-            if next_x < 0 or next_x >= N or next_y < 0 or next_y >= M:
-                continue
-            # 내리막길이 아닐 때
-            if board[current_x][current_y] <= board[next_x][next_y]:
-                continue
-            dp[next_x][next_y] += dp[current_x][current_y]
-
-print(dp[N - 1][M - 1])
+print(dfs(N - 1, M - 1))
