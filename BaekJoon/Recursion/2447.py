@@ -16,3 +16,4 @@ for i in range(N):
     for j in range(N):
         draw(i, j, N)
     print('')
+# Pypy3로 AC
