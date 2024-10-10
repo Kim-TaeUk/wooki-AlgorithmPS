@@ -6,7 +6,7 @@ houses = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
 res = float('inf')
 for candidate in combinations(houses, K):
-    tmp = float('-inf')
+    tmp = 0
     for house in houses:
         k = float('inf')
         flag = True
