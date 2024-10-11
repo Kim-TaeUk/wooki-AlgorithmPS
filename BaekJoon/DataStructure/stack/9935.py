@@ -8,8 +8,7 @@ bomb_len = len(bomb)
 for word in words:
     stack.append(word)
     if ''.join(stack[-bomb_len:]) == bomb:
-        for _ in range(bomb_len):
-            stack.pop()
+        del stack[-bomb_len:]
 
 if stack:
     print(''.join(stack))
