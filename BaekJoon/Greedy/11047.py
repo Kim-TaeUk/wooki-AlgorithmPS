@@ -1,20 +1,12 @@
-N, K = map(int, input().split())
+import sys
 
-N_list = []
-for _ in range(N):
-    N_list.append(int(input()))
+N, K = map(int, sys.stdin.readline().split())
+N_list = [int(sys.stdin.readline()) for _ in range(N)]
 
-# N_list.sort(reverse=True)
-N_list = N_list[::-1]
 cnt = 0
-
-for x in N_list:
+for x in reversed(N_list):
     if K >= x:
         cnt += K // x
-        K = K % x
-# for i in range(N - 1, -1, -1):
-#     if K >= N_list[i]:
-#         cnt += K // N_list[i]
-#         K = K % N_list[i]
+        K %= x
 
 print(cnt)
